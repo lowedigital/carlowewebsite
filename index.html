@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carlowe Properties | Sell, Invest &amp; Insure — Growing Together</title>
+<meta name="description" content="Carlowe Properties helps you sell your home fast for cash, invest in real estate, and protect your assets with landlord &amp; commercial insurance — all under one roof." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   CARLOWE PROPERTIES — REDESIGN
+   Deep forest + brass gold + warm cream. Trust, growth, craft.
+   Display: Fraunces | Body: Inter
+============================================================ */
+:root{
+  --forest:#122922;
+  --forest-2:#1B3E33;
+  --forest-3:#254E41;
+  --gold:#C6A15B;
+  --gold-light:#E4CA95;
+  --gold-glow:rgba(198,161,91,0.25);
+  --cream:#FAF7F0;
+  --cream-2:#F1EBDD;
+  --charcoal:#181510;
+  --ink:#2A2721;
+  --muted:#6B675E;
+  --white:#FFFFFF;
+
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem;
+  --sp-5:1.25rem; --sp-6:1.5rem; --sp-8:2rem; --sp-10:2.5rem;
+  --sp-12:3rem; --sp-16:4rem; --sp-20:5rem; --sp-24:6rem; --sp-32:8rem;
+
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', system-ui, sans-serif;
+
+  --r-sm:6px; --r-md:14px; --r-lg:24px; --r-pill:999px;
+
+  --shadow-sm:0 2px 10px rgba(18,41,34,0.08);
+  --shadow-md:0 10px 34px rgba(18,41,34,0.14);
+  --shadow-lg:0 24px 70px rgba(18,41,34,0.22);
+  --shadow-gold:0 10px 30px rgba(198,161,91,0.35);
+
+  --t-fast:160ms ease; --t-base:300ms cubic-bezier(.4,0,.2,1); --t-slow:600ms cubic-bezier(.4,0,.2,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;color:var(--charcoal);font-weight:600;}
+.container{width:100%;max-width:1240px;margin-inline:auto;padding-inline:var(--sp-6);}
+section{position:relative;}
+
+/* reveal-on-scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease;}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+
+/* helpers */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:600;color:var(--gold);
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--gold);display:inline-block;}
+.section-head{max-width:680px;margin-bottom:var(--sp-12);}
+.section-head.center{margin-inline:auto;text-align:center;}
+.section-head h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:var(--sp-3);}
+.section-head p{margin-top:var(--sp-4);color:var(--muted);font-size:1.08rem;}
+
+.placeholder-flag{
+  display:inline-block;margin-top:var(--sp-2);padding:.2rem .6rem;
+  background:#FFF3D6;border:1px dashed #D8A93A;color:#8A6714;
+  font-size:.68rem;font-weight:600;letter-spacing:.03em;border-radius:var(--r-sm);
+}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:1rem 2rem;border-radius:var(--r-pill);
+  font-weight:600;font-size:.95rem;letter-spacing:.01em;
+  transition:transform var(--t-fast), box-shadow var(--t-fast), background var(--t-fast), color var(--t-fast);
+  white-space:nowrap;
+}
+.btn-gold{background:var(--gold);color:var(--charcoal);box-shadow:var(--shadow-gold);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(198,161,91,0.45);}
+.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,0.55);color:var(--white);}
+.btn-outline:hover{background:rgba(255,255,255,0.12);border-color:#fff;}
+.btn-dark{background:var(--forest);color:var(--white);}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.btn-sm{padding:.7rem 1.4rem;font-size:.85rem;}
+
+/* ============ NAV ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:var(--sp-5) 0;
+  transition:background var(--t-base), padding var(--t-base), box-shadow var(--t-base);
+}
+header.scrolled{
+  background:rgba(250,247,240,0.92);backdrop-filter:blur(10px);
+  padding:var(--sp-3) 0;box-shadow:var(--shadow-sm);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-6);}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--white);transition:color var(--t-base);}
+header.scrolled .brand{color:var(--charcoal);}
+.brand img{height:38px;width:38px;border-radius:8px;object-fit:cover;}
+.nav-links{display:flex;align-items:center;gap:var(--sp-8);}
+.nav-links a{font-size:.92rem;font-weight:500;color:rgba(255,255,255,0.88);transition:color var(--t-fast);position:relative;}
+header.scrolled .nav-links a{color:var(--ink);}
+.nav-links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--gold);transition:width var(--t-fast);}
+.nav-links a:not(.btn):hover::after{width:100%;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;width:28px;z-index:120;}
+.nav-toggle span{height:2px;background:var(--white);border-radius:2px;transition:var(--t-fast);}
+header.scrolled .nav-toggle span{background:var(--charcoal);}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:88vh;display:flex;align-items:center;
+  background:linear-gradient(100deg, rgba(18,41,34,0.88) 0%, rgba(18,41,34,0.62) 55%, rgba(18,41,34,0.4) 100%),
+    url('https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/1780512613353-H25IWPW557DAQUSON09N/unsplash-image-uQg_wEjq4eg.jpg') center/cover no-repeat;
+  position:relative;
+}
+.hero-inner{position:relative;z-index:2;padding-top:var(--sp-32);padding-bottom:var(--sp-24);max-width:680px;}
+.hero .eyebrow{color:var(--gold-light);}
+.hero .eyebrow::before{background:var(--gold-light);}
+.hero h1{color:var(--white);font-size:clamp(2.6rem,5vw,4.2rem);margin-top:var(--sp-5);letter-spacing:-0.01em;}
+.hero h1 em{color:var(--gold-light);font-style:italic;}
+.hero p{color:rgba(255,255,255,0.82);font-size:1.15rem;max-width:520px;margin-top:var(--sp-5);}
+.hero-actions{display:flex;flex-wrap:wrap;gap:var(--sp-4);margin-top:var(--sp-9);}
+
+/* ============ STATS STRIP ============ */
+.stats-strip{background:var(--charcoal);padding:var(--sp-10) 0;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-8);}
+.stats-grid .stat{text-align:center;border-left:1px solid rgba(255,255,255,0.12);}
+.stats-grid .stat:first-child{border-left:none;}
+.stats-grid .num{font-family:var(--font-display);font-size:2rem;color:var(--gold-light);font-weight:600;}
+.stats-grid .label{color:rgba(255,255,255,0.6);font-size:.85rem;margin-top:.3rem;}
+
+/* ============ VALUES / ABOUT ============ */
+.about{padding:var(--sp-32) 0;background:var(--cream);}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:var(--sp-20);align-items:center;}
+.about-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative;}
+.about-img img{height:560px;object-fit:cover;width:100%;}
+.about-img-badge{
+  position:absolute;bottom:var(--sp-6);left:var(--sp-6);right:var(--sp-6);
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);
+  border-radius:var(--r-md);padding:var(--sp-5);
+  display:flex;gap:var(--sp-4);align-items:center;box-shadow:var(--shadow-md);
+}
+.about-img-badge .icon{width:44px;height:44px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.about-img-badge .icon svg{width:22px;height:22px;stroke:var(--gold-light);}
+.about-img-badge strong{display:block;font-family:var(--font-display);font-size:1.05rem;}
+.about-img-badge span{color:var(--muted);font-size:.85rem;}
+
+.values{display:grid;gap:var(--sp-5);margin-top:var(--sp-8);}
+.value-card{
+  display:flex;gap:var(--sp-4);padding:var(--sp-6);border-radius:var(--r-md);
+  background:var(--white);box-shadow:var(--shadow-sm);
+  transition:transform var(--t-base), box-shadow var(--t-base);
+  border:1px solid rgba(18,41,34,0.06);
+}
+.value-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.value-card .num{font-family:var(--font-display);font-size:1.6rem;color:var(--gold);font-weight:700;flex-shrink:0;width:40px;}
+.value-card h4{font-size:1.15rem;margin-bottom:.3rem;}
+.value-card p{color:var(--muted);font-size:.95rem;}
+
+.approach{margin-top:var(--sp-16);padding-top:var(--sp-16);border-top:1px solid var(--cream-2);}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-8);margin-top:var(--sp-8);}
+.approach-card h4{font-size:1.1rem;margin-bottom:.5rem;color:var(--forest);}
+.approach-card p{color:var(--muted);font-size:.95rem;}
+.approach-card .idx{font-family:var(--font-display);font-style:italic;color:var(--gold);font-size:1.4rem;display:block;margin-bottom:.5rem;}
+
+/* ============ SERVICES / PILLARS ============ */
+.services{background:var(--forest);padding:var(--sp-32) 0;position:relative;overflow:hidden;}
+.services::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(198,161,91,0.12), transparent 70%);}
+.services .section-head h2, .services .section-head p{color:var(--white);}
+.services .section-head p{color:rgba(255,255,255,0.7);}
+
+.pillar{
+  display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:center;
+  padding:var(--sp-16) 0;border-bottom:1px solid rgba(255,255,255,0.1);
+  scroll-margin-top:110px;
+}
+.pillar:last-child{border-bottom:none;}
+.pillar:nth-child(even) .pillar-copy{order:2;}
+.pillar-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);height:420px;}
+.pillar-img img{height:100%;width:100%;object-fit:cover;}
+.pillar-tag{display:inline-block;background:rgba(198,161,91,0.15);color:var(--gold-light);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.4rem .9rem;border-radius:var(--r-pill);margin-bottom:var(--sp-4);}
+.pillar-copy h3{color:var(--white);font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:var(--sp-4);}
+.pillar-copy p{color:rgba(255,255,255,0.75);font-size:1.05rem;margin-bottom:var(--sp-6);}
+.pillar-list{display:grid;gap:var(--sp-3);margin-bottom:var(--sp-8);}
+.pillar-list li{display:flex;gap:.7rem;align-items:flex-start;color:rgba(255,255,255,0.85);font-size:.95rem;}
+.pillar-list svg{width:18px;height:18px;stroke:var(--gold);flex-shrink:0;margin-top:.15rem;}
+
+/* ============ PROCESS ============ */
+.process{padding:var(--sp-32) 0;background:var(--cream);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-6);counter-reset:step;position:relative;}
+.steps::before{content:'';position:absolute;top:34px;left:8%;right:8%;height:1px;background:repeating-linear-gradient(90deg, var(--gold-light) 0 8px, transparent 8px 16px);z-index:0;}
+.step{position:relative;z-index:1;text-align:center;padding:0 var(--sp-3);}
+.step .circle{
+  width:68px;height:68px;border-radius:50%;background:var(--white);border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-5);
+  font-family:var(--font-display);font-size:1.5rem;color:var(--forest);font-weight:700;box-shadow:var(--shadow-sm);
+}
+.step h4{font-size:1.05rem;margin-bottom:.5rem;}
+.step p{color:var(--muted);font-size:.9rem;}
+
+/* ============ FAQ ============ */
+.faq{padding:var(--sp-32) 0;background:var(--cream);}
+.faq-list{max-width:820px;margin-inline:auto;display:grid;gap:var(--sp-4);}
+.faq-item{background:var(--white);border-radius:var(--r-md);border:1px solid rgba(18,41,34,0.08);overflow:hidden;}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:var(--sp-6);text-align:left;font-weight:600;font-size:1.02rem;}
+.faq-q .plus{width:22px;height:22px;flex-shrink:0;position:relative;transition:transform var(--t-fast);}
+.faq-q .plus::before,.faq-q .plus::after{content:'';position:absolute;background:var(--forest);border-radius:2px;}
+.faq-q .plus::before{width:100%;height:2px;top:50%;left:0;transform:translateY(-50%);}
+.faq-q .plus::after{width:2px;height:100%;left:50%;top:0;transform:translateX(-50%);transition:transform var(--t-fast);}
+.faq-item.open .plus::after{transform:translateX(-50%) scaleY(0);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height var(--t-base);}
+.faq-a p{padding:0 var(--sp-6) var(--sp-6);color:var(--muted);}
+.faq-item.open .faq-a{max-height:220px;}
+
+/* ============ GET STARTED / FORMS ============ */
+.get-started{padding:var(--sp-32) 0;background:var(--cream-2);}
+.gs-tabs{display:flex;gap:var(--sp-3);justify-content:center;margin-bottom:var(--sp-12);flex-wrap:wrap;}
+.gs-tab{padding:.85rem 1.8rem;border-radius:var(--r-pill);font-weight:600;font-size:.92rem;background:var(--white);color:var(--muted);border:1px solid rgba(18,41,34,0.12);transition:var(--t-fast);}
+.gs-tab.active{background:var(--forest);color:var(--white);border-color:var(--forest);}
+.gs-panel{display:none;max-width:760px;margin-inline:auto;background:var(--white);border-radius:var(--r-lg);padding:var(--sp-10);box-shadow:var(--shadow-md);}
+.gs-panel.active{display:block;}
+.gs-panel h3{font-size:1.5rem;margin-bottom:.4rem;}
+.gs-panel .gs-sub{color:var(--muted);font-size:.95rem;margin-bottom:var(--sp-8);}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5);}
+.form-field{display:flex;flex-direction:column;gap:.4rem;}
+.form-field.full{grid-column:1/-1;}
+.form-field label{font-size:.82rem;font-weight:600;color:var(--ink);}
+.form-field input,.form-field select,.form-field textarea{
+  padding:.85rem 1rem;border-radius:var(--r-sm);border:1px solid rgba(18,41,34,0.16);
+  font-family:var(--font-body);font-size:.95rem;color:var(--ink);background:var(--cream);
+  transition:border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-glow);
+}
+.form-field textarea{resize:vertical;min-height:90px;}
+.form-submit-row{grid-column:1/-1;display:flex;align-items:center;gap:var(--sp-5);margin-top:var(--sp-3);flex-wrap:wrap;}
+.form-note{grid-column:1/-1;font-size:.78rem;color:var(--muted);margin-top:-var(--sp-2);}
+.form-status{font-size:.88rem;color:var(--forest);font-weight:600;display:none;}
+.form-status.show{display:inline-block;}
+
+/* ============ CTA BAND ============ */
+.cta-band{
+  background:linear-gradient(120deg, var(--forest) 0%, var(--forest-3) 100%);
+  padding:var(--sp-20) 0;text-align:center;position:relative;overflow:hidden;
+}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 50%, rgba(198,161,91,0.18), transparent 55%);}
+.cta-band h2{color:var(--white);font-size:clamp(2rem,4vw,3rem);position:relative;z-index:1;}
+.cta-band p{color:rgba(255,255,255,0.75);margin-top:var(--sp-4);position:relative;z-index:1;}
+.cta-band .hero-actions{justify-content:center;position:relative;z-index:1;margin-top:var(--sp-8);}
+
+/* ============ CONTACT ============ */
+.contact{padding:var(--sp-32) 0;background:var(--cream);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:center;}
+.contact-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);height:480px;}
+.contact-img img{height:100%;width:100%;object-fit:cover;}
+.contact-details{display:grid;gap:var(--sp-5);margin-top:var(--sp-8);}
+.contact-row{display:flex;gap:var(--sp-4);align-items:center;}
+.contact-row .icon{width:46px;height:46px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-row .icon svg{width:20px;height:20px;stroke:var(--gold-light);}
+.contact-row strong{display:block;font-size:.95rem;}
+.contact-row span, .contact-row a{color:var(--muted);font-size:.92rem;}
+
+/* ============ FOOTER ============ */
+footer{background:var(--charcoal);color:rgba(255,255,255,0.7);padding:var(--sp-20) 0 var(--sp-8);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:var(--sp-10);padding-bottom:var(--sp-16);border-bottom:1px solid rgba(255,255,255,0.1);}
+.footer-brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--white);margin-bottom:var(--sp-4);}
+.footer-brand img{height:34px;width:34px;border-radius:8px;}
+.footer-col h5{color:var(--white);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--sp-4);}
+.footer-col ul{display:grid;gap:.6rem;}
+.footer-col a{font-size:.92rem;transition:color var(--t-fast);}
+.footer-col a:hover{color:var(--gold-light);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:var(--sp-6);font-size:.82rem;flex-wrap:wrap;gap:var(--sp-3);}
+.footer-bottom a{color:var(--gold-light);}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:960px){
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:min(320px,80vw);background:var(--forest);flex-direction:column;justify-content:center;align-items:flex-start;padding:var(--sp-10);gap:var(--sp-8);transform:translateX(100%);transition:transform var(--t-base);z-index:110;}
+  .nav-links.open{transform:translateX(0);}
+  .nav-links a{color:var(--white) !important;font-size:1.1rem;}
+  .nav-toggle{display:flex;}
+  .stats-grid{grid-template-columns:1fr;row-gap:var(--sp-6);}
+  .stats-grid .stat{border-left:none;border-top:1px solid rgba(255,255,255,0.12);padding-top:var(--sp-5);}
+  .stats-grid .stat:first-child{border-top:none;padding-top:0;}
+  .about-grid,.pillar,.contact-grid{grid-template-columns:1fr;}
+  .pillar:nth-child(even) .pillar-copy{order:0;}
+  .approach-grid,.steps,.form-grid{grid-template-columns:1fr;}
+  .steps::before{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .gs-panel{padding:var(--sp-6);}
+}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <img src="https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/536bd0e3-4919-4ecd-bdee-a7d116dc1d79/logo.png" alt="Carlowe Properties logo" />
+      Carlowe Properties
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#insure">Insure</a>
+      <a href="#invest">Invest</a>
+      <a href="#sell">Sell</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://calendar.app.google/WbQsKcRvq8zvBgnK7" class="btn btn-gold btn-sm">Book a Call</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="container hero-inner reveal">
+    <span class="eyebrow">Sell &middot; Invest &middot; Insure</span>
+    <h1>Growing together, <em>the smart way</em> to sell, invest &amp; protect.</h1>
+    <p>Carlowe Properties is the one ecosystem where selling your home, growing your portfolio, and protecting your assets all work together — instead of against each other.</p>
+    <div class="hero-actions">
+      <a href="#get-started" data-tab="sell" class="btn btn-gold">Get a Cash Offer →</a>
+      <a href="https://calendar.app.google/WbQsKcRvq8zvBgnK7" class="btn btn-outline">Book a Free Call</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid reveal">
+      <div class="stat"><div class="num">48 hrs</div><div class="label">Typical offer turnaround</div></div>
+      <div class="stat"><div class="num">3-in-1</div><div class="label">Sell, Invest &amp; Insure ecosystem</div></div>
+      <div class="stat"><div class="num">3+</div><div class="label">Years serving our community</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-img reveal">
+      <img src="https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/d9c00d76-a4a6-49aa-8271-1ce3bf18db57/Foggy-Morning-4-imgg-gi3-_57gi6wo.png" alt="Carlowe Properties community" />
+      <div class="about-img-badge">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21c-4-4-8-7.5-8-12a8 8 0 0116 0c0 4.5-4 8-8 12z"/></svg></div>
+        <div><strong>Rooted in community</strong><span>Built by investors, for investors</span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Who We Are</span>
+      <h2 class="section-head" style="margin-bottom:0;">A real estate ecosystem, not just a transaction.</h2>
+      <p style="color:var(--muted);margin-top:var(--sp-5);">We began as small real estate investors and have grown to make a real impact in our community. We believe in giving back and being upfront in everything we do.</p>
+
+      <div class="values">
+        <div class="value-card"><div class="num">01</div><div><h4>Synergy</h4><p>We build together by working together.</p></div></div>
+        <div class="value-card"><div class="num">02</div><div><h4>Stewardship</h4><p>We manage resources to create a lasting impact.</p></div></div>
+        <div class="value-card"><div class="num">03</div><div><h4>Sustainability</h4><p>We create lasting value for people.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container approach reveal">
+    <div class="section-head center">
+      <span class="eyebrow">Our Approach</span>
+      <h2>Why one ecosystem beats three disconnected vendors.</h2>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card"><span class="idx">01</span><h4>Efficiency &amp; Protection</h4><p>By aligning services under one roof, we catch and prevent asset liabilities faster than disconnected third parties ever could.</p></div>
+      <div class="approach-card"><span class="idx">02</span><h4>Seamless Transition</h4><p>We don't just help you buy a property — our management arm handles the day-to-day, and our insurance arm mitigates the risk.</p></div>
+      <div class="approach-card"><span class="idx">03</span><h4>Investor-Centric Focus</h4><p>Our ecosystem is built by investors, for investors. We understand asset preservation and yield maximization at every level.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>Three services. One partner.</h2>
+      <p>Whether you're selling, growing a portfolio, or protecting what you've built — Carlowe Properties meets you at every stage.</p>
+    </div>
+
+    <div class="pillar reveal" id="sell">
+      <div class="pillar-img"><img src="https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/1780512643786-0SEIJ50XHZR2D5P0P7AA/unsplash-image-pmqTJDVbKdM.jpg" alt="Sell your property"/></div>
+      <div class="pillar-copy">
+        <span class="pillar-tag">Sell</span>
+        <h3>Sell direct. Skip the hassle.</h3>
+        <p>Looking to sell? We offer hassle-free property acquisitions, fast closings, and fair valuations — no repairs, no showings, no waiting.</p>
+        <ul class="pillar-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Fair cash offer, no obligation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Close on your timeline</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Sell as-is, zero repairs</li>
+        </ul>
+        <a href="#get-started" data-tab="sell" class="btn btn-gold">Get Your Cash Offer</a>
+      </div>
+    </div>
+
+    <div class="pillar reveal" id="invest">
+      <div class="pillar-img"><img src="https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/1780863947126-5S1Q49WSDJ2MHR1MXXFS/unsplash-image-6qxIPFV6DwY.jpg" alt="Invest with Carlowe"/></div>
+      <div class="pillar-copy">
+        <span class="pillar-tag">Invest</span>
+        <h3>Invest with a team that manages the outcome.</h3>
+        <p>We help you find the right property — then our management arm handles day-to-day operations so your investment performs from day one.</p>
+        <ul class="pillar-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Sourcing &amp; underwriting support</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Ongoing property management</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Insurance built into every deal</li>
+        </ul>
+        <a href="https://calendar.app.google/WbQsKcRvq8zvBgnK7" class="btn btn-gold">Talk to an Advisor</a>
+      </div>
+    </div>
+
+    <div class="pillar reveal" id="insure">
+      <div class="pillar-img"><img src="https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/1780512613353-H25IWPW557DAQUSON09N/unsplash-image-uQg_wEjq4eg.jpg" alt="Insure your assets"/></div>
+      <div class="pillar-copy">
+        <span class="pillar-tag">Insure</span>
+        <h3>Protect the asset you worked to build.</h3>
+        <p>Customized asset protection, landlord policies, and commercial property risk management — tailored to how you actually use the property.</p>
+        <ul class="pillar-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Landlord &amp; rental property policies</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Commercial risk management</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg> Bundled savings across your portfolio</li>
+        </ul>
+        <a href="#get-started" data-tab="insure" class="btn btn-gold">Get a Coverage Review</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">How Selling Works</span>
+      <h2>Four steps to a closed sale.</h2>
+      <p style="text-align:center;">A simple, transparent path from first call to cash in hand.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="circle">1</div><h4>Tell us about it</h4><p>Share your property details in a quick call or form.</p></div>
+      <div class="step"><div class="circle">2</div><h4>Get your offer</h4><p>We evaluate and send a fair, no-obligation cash offer within 48 hours.</p></div>
+      <div class="step"><div class="circle">3</div><h4>Pick your date</h4><p>You choose the closing timeline that works for you.</p></div>
+      <div class="step"><div class="circle">4</div><h4>Close &amp; get paid</h4><p>Sign, close, and walk away — no repairs, no fees.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="get-started" id="get-started">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Get Started</span>
+      <h2>Request an offer or a coverage review.</h2>
+      <p style="text-align:center;">Pick what you need below — we'll follow up by email within one business day.</p>
+    </div>
+
+    <div class="gs-tabs reveal">
+      <button class="gs-tab active" data-panel="sell">Sell My Property</button>
+      <button class="gs-tab" data-panel="insure">Get Insurance Coverage</button>
+    </div>
+
+    <div class="gs-panel active reveal" id="panel-sell">
+      <h3>Get Your Cash Offer</h3>
+      <p class="gs-sub">Tell us about your property and we'll send a fair, no-obligation cash offer.</p>
+      <form id="sellForm" class="form-grid" novalidate>
+        <div class="form-field"><label for="sellName">Full name*</label><input type="text" id="sellName" required /></div>
+        <div class="form-field"><label for="sellEmail">Email*</label><input type="email" id="sellEmail" required /></div>
+        <div class="form-field"><label for="sellPhone">Phone*</label><input type="tel" id="sellPhone" required /></div>
+        <div class="form-field"><label for="sellTimeframe">Timeframe to sell</label>
+          <select id="sellTimeframe">
+            <option>As soon as possible</option>
+            <option>Within 30 days</option>
+            <option>1–3 months</option>
+            <option>Just exploring options</option>
+          </select>
+        </div>
+        <div class="form-field full"><label for="sellAddress">Property address*</label><input type="text" id="sellAddress" placeholder="Street, City, State, ZIP" required /></div>
+        <div class="form-field"><label for="sellType">Property type</label>
+          <select id="sellType">
+            <option>Single-family</option>
+            <option>Multi-family</option>
+            <option>Condo/Townhome</option>
+            <option>Land</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field"><label for="sellCondition">Property condition</label>
+          <select id="sellCondition">
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Needs some work</option>
+            <option>Needs major repairs</option>
+          </select>
+        </div>
+        <div class="form-field full"><label for="sellNotes">Anything else we should know?</label><textarea id="sellNotes"></textarea></div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-gold">Request My Cash Offer</button>
+          <span class="form-status" id="sellStatus">Opening your email client…</span>
+        </div>
+        <div class="form-note">Submitting opens a pre-filled email to robbie@carloweproperties.com from your email app — no account needed.</div>
+      </form>
+    </div>
+
+    <div class="gs-panel reveal" id="panel-insure">
+      <h3>Get a Coverage Review</h3>
+      <p class="gs-sub">Share a few details about your property and we'll follow up with coverage options.</p>
+      <form id="insureForm" class="form-grid" novalidate>
+        <div class="form-field"><label for="insName">Full name*</label><input type="text" id="insName" required /></div>
+        <div class="form-field"><label for="insEmail">Email*</label><input type="email" id="insEmail" required /></div>
+        <div class="form-field"><label for="insPhone">Phone*</label><input type="tel" id="insPhone" required /></div>
+        <div class="form-field"><label for="insUnits">Number of units</label><input type="number" id="insUnits" min="1" placeholder="e.g. 1" /></div>
+        <div class="form-field full"><label for="insAddress">Property address*</label><input type="text" id="insAddress" placeholder="Street, City, State, ZIP" required /></div>
+        <div class="form-field"><label for="insType">Property type</label>
+          <select id="insType">
+            <option>Single-family rental</option>
+            <option>Multi-family rental</option>
+            <option>Commercial property</option>
+            <option>Owner-occupied</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field"><label for="insCurrent">Do you have current coverage?</label>
+          <select id="insCurrent">
+            <option>Yes, looking to switch</option>
+            <option>Yes, adding a policy</option>
+            <option>No, I need new coverage</option>
+          </select>
+        </div>
+        <div class="form-field full"><label for="insNotes">Anything specific you want covered?</label><textarea id="insNotes"></textarea></div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-gold">Request Coverage Review</button>
+          <span class="form-status" id="insureStatus">Opening your email client…</span>
+        </div>
+        <div class="form-note">Submitting opens a pre-filled email to garrett@carloweproperties.com and robbie@carloweproperties.com from your email app — no account needed.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions we hear a lot.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">How fast can I get an offer on my property? <span class="plus"></span></button>
+        <div class="faq-a"><p>Most sellers receive an initial cash offer within 48 hours of reaching out.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need to make repairs before selling? <span class="plus"></span></button>
+        <div class="faq-a"><p>No — we buy properties as-is, so you can skip repairs, cleaning, and showings entirely.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What areas do you invest and manage properties in? <span class="plus"></span></button>
+        <div class="faq-a"><p>We currently serve Indiana, USA.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container reveal">
+    <h2>Ready to grow together?</h2>
+    <p>Book a free call and let's talk about selling, investing, or insuring your next property.</p>
+    <div class="hero-actions">
+      <a href="https://calendar.app.google/WbQsKcRvq8zvBgnK7" class="btn btn-gold">Book a Free Call</a>
+      <a href="mailto:robbie@carloweproperties.com" class="btn btn-outline">Email Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Contact Us</span>
+      <h2 class="section-head" style="margin-bottom:0;">Let's start the conversation.</h2>
+      <div class="contact-details">
+        <div class="contact-row"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg></div><div><strong>Email</strong><a href="mailto:robbie@carloweproperties.com">robbie@carloweproperties.com</a></div></div>
+        <div class="contact-row"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4-8-7.5-8-12a8 8 0 0116 0c0 4.5-4 8-8 12z"/></svg></div><div><strong>Service Area</strong><span>Indiana, USA</span></div></div>
+        <div class="contact-row"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><strong>Office Hours</strong><a href="https://calendar.app.google/WbQsKcRvq8zvBgnK7">Book a time that works</a></div></div>
+      </div>
+    </div>
+    <div class="contact-img reveal"><img src="https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/1780512643786-0SEIJ50XHZR2D5P0P7AA/unsplash-image-pmqTJDVbKdM.jpg" alt="Contact Carlowe Properties"/></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="https://images.squarespace-cdn.com/content/v1/6825bc5b69f3dd2fdc337e65/536bd0e3-4919-4ecd-bdee-a7d116dc1d79/logo.png" alt="logo"/>Carlowe Properties</div>
+        <p style="font-size:.92rem;max-width:320px;">Selling, investing, and insuring — one ecosystem built by investors, for investors.</p>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="#sell">Sell</a></li><li><a href="#invest">Invest</a></li><li><a href="#insure">Insure</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="https://www.carloweproperties.com/team">Team Portal</a></li></ul></div>
+      <div class="footer-col"><h5>Get in Touch</h5><ul><li><a href="mailto:robbie@carloweproperties.com">robbie@carloweproperties.com</a></li><li><a href="https://calendar.app.google/WbQsKcRvq8zvBgnK7">Book a Call</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Carlowe Properties. All rights reserved.</span>
+    </div>
+    <div style="text-align:center;margin-top:var(--sp-4);">
+      <span style="font-size:.68rem;color:rgba(255,255,255,0.35);">website designed by <a href="https://lowedigital.github.io" style="color:rgba(255,255,255,0.45);text-decoration:underline;">Caleb Lowe</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    navToggle.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // faq accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // get-started tabs
+  function activateTab(name){
+    document.querySelectorAll('.gs-tab').forEach(t => t.classList.toggle('active', t.dataset.panel === name));
+    document.querySelectorAll('.gs-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+  }
+  document.querySelectorAll('.gs-tab').forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab.dataset.panel));
+  });
+  document.querySelectorAll('a[data-tab]').forEach(link => {
+    link.addEventListener('click', () => activateTab(link.dataset.tab));
+  });
+
+  // sell form -> mailto
+  document.getElementById('sellForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const subject = 'Cash Offer Request — ' + document.getElementById('sellAddress').value;
+    const body = [
+      'Name: ' + document.getElementById('sellName').value,
+      'Email: ' + document.getElementById('sellEmail').value,
+      'Phone: ' + document.getElementById('sellPhone').value,
+      'Property Address: ' + document.getElementById('sellAddress').value,
+      'Property Type: ' + document.getElementById('sellType').value,
+      'Condition: ' + document.getElementById('sellCondition').value,
+      'Timeframe: ' + document.getElementById('sellTimeframe').value,
+      'Notes: ' + document.getElementById('sellNotes').value
+    ].join('%0D%0A');
+    window.location.href = 'mailto:robbie@carloweproperties.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+    const status = document.getElementById('sellStatus');
+    status.classList.add('show');
+    setTimeout(() => status.classList.remove('show'), 6000);
+  });
+
+  // insurance form -> mailto
+  document.getElementById('insureForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const subject = 'Insurance Coverage Review — ' + document.getElementById('insAddress').value;
+    const body = [
+      'Name: ' + document.getElementById('insName').value,
+      'Email: ' + document.getElementById('insEmail').value,
+      'Phone: ' + document.getElementById('insPhone').value,
+      'Property Address: ' + document.getElementById('insAddress').value,
+      'Property Type: ' + document.getElementById('insType').value,
+      'Units: ' + document.getElementById('insUnits').value,
+      'Current Coverage: ' + document.getElementById('insCurrent').value,
+      'Notes: ' + document.getElementById('insNotes').value
+    ].join('%0D%0A');
+    window.location.href = 'mailto:garrett@carloweproperties.com,robbie@carloweproperties.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+    const status = document.getElementById('insureStatus');
+    status.classList.add('show');
+    setTimeout(() => status.classList.remove('show'), 6000);
+  });
+</script>
+</body>
+</html>
