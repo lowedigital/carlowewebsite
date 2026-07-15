@@ -605,7 +605,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.7);padding:var(--sp-2
         <p style="font-size:.92rem;max-width:320px;">Selling, investing, and insuring — one ecosystem built by investors, for investors.</p>
       </div>
       <div class="footer-col"><h5>Services</h5><ul><li><a href="#sell">Sell</a></li><li><a href="#invest">Invest</a></li><li><a href="#insure">Insure</a></li></ul></div>
-      <div class="footer-col"><h5>Company</h5><ul><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="https://www.carloweproperties.com/team.html">Team Portal</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="team.html">Team Portal</a></li></ul></div>
       <div class="footer-col"><h5>Get in Touch</h5><ul><li><a href="mailto:robbie@carloweproperties.com">robbie@carloweproperties.com</a></li><li><a href="https://calendar.app.google/WbQsKcRvq8zvBgnK7">Book a Call</a></li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -669,7 +669,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.7);padding:var(--sp-2
   // sell form -> mailto
   document.getElementById('sellForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    const f = e.target;
     const subject = 'Cash Offer Request — ' + document.getElementById('sellAddress').value;
     const body = [
       'Name: ' + document.getElementById('sellName').value,
